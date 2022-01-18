@@ -14,14 +14,16 @@ public class MainMenuActivity extends AppCompatActivity {
     private ImageButton mStartButton;
     private RelativeLayout mLevels;
     private RelativeLayout mSettings;
-    public MediaPlayer mBackgroundMusic =  MediaPlayer.create(MainMenuActivity.this, R.raw.meny_game );;
+    public MediaPlayer mBackgroundMusic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-        mBackgroundMusic.start();
+
+        //start service and play music
+        startService(new Intent(MainMenuActivity.this, SoundService.class));
         //Start Button
         mStartButton = (ImageButton) findViewById(R.id.start);
         // levels button
@@ -40,29 +42,12 @@ public class MainMenuActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
-        mBackgroundMusic.pause();
-    }
-
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-        mBackgroundMusic.start();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-        mBackgroundMusic.stop();
-
-    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mBackgroundMusic.stop();
+        //stop service and stop music
+        stopService(new Intent(MainMenuActivity.this, SoundService.class));
     }
 
 }

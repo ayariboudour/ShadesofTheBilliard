@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Shades_of_The_Billiard.iml" filepath="$PROJECT_DIR$/.idea/modules/Shades_of_The_Billiard.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/Shades_of_The_Billiard.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/Shades_of_The_Billiard.app.iml" />
+    </modules>
+  </component>
+</project>
