@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bg"
+    android:orientation="horizontal"
     tools:context=".SettingsActivity">
+
 
     <RelativeLayout
         android:id="@+id/soundlayout"
-        android:layout_width="wrap_content"
-        android:layout_height="97dp"
+        android:layout_width="203dp"
+        android:layout_height="104dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="108dp"
-        android:layout_marginTop="139dp"
-        android:layout_marginEnd="406dp"
-        android:layout_marginBottom="175dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.222"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.498">
 
         <ImageView
             android:id="@+id/sound"
@@ -54,16 +58,18 @@
 
     <RelativeLayout
         android:id="@+id/Languagelayout"
-        android:layout_width="wrap_content"
-        android:layout_height="97dp"
+        android:layout_width="203dp"
+        android:layout_height="104dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="406dp"
-        android:layout_marginTop="139dp"
-        android:layout_marginEnd="108dp"
-        android:layout_marginBottom="175dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.812"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.516">
 
         <ImageView
             android:id="@+id/language"
@@ -99,18 +105,20 @@
 
     <LinearLayout
         android:id="@+id/mute_layout"
-        android:layout_width="316dp"
-        android:layout_height="54dp"
+        android:layout_width="218dp"
+        android:layout_height="66dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="106dp"
-        android:layout_marginTop="229dp"
-        android:layout_marginEnd="415dp"
-        android:layout_marginBottom="128dp"
         android:orientation="horizontal"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.228"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.724">
 
 
         <Button
@@ -134,35 +142,38 @@
             android:textAppearance="@style/off" />
     </LinearLayout>
 
-
     <ImageButton
         android:id="@+id/eng"
-        android:layout_width="wrap_content"
-        android:layout_height="34dp"
+        android:layout_width="61dp"
+        android:layout_height="42dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="487dp"
-        android:layout_marginTop="234dp"
-        android:layout_marginEnd="192dp"
-        android:layout_marginBottom="143dp"
         android:background="@drawable/en"
-        android:visibility="invisible"/>
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.756"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Languagelayout"
+        app:layout_constraintVertical_bias="0.177" />
 
     <ImageButton
         android:id="@+id/backbtn"
-        android:layout_width="51dp"
-        android:layout_height="wrap_content"
+        android:layout_width="66dp"
+        android:layout_height="36dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="648dp"
-        android:layout_marginBottom="349dp"
-        android:background="@drawable/back" />
+        android:background="@drawable/back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.042" />
 
 
-</RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -55,7 +55,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mShowButtons.setVisibility(View.INVISIBLE);
-                mute();
+                //mute();
             }
         });
 
@@ -63,7 +63,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mShowButtons.setVisibility(View.INVISIBLE);
-                unMute();
+               // unMute();
             }
         });
 
