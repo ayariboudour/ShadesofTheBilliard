@@ -1,4 +1,4 @@
-package com.game.shadeofthebilliard;
+package com.game.shadeofthebilliard.en;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,20 +10,21 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 
+import com.game.shadeofthebilliard.R;
+
 public class MainMenuActivity extends AppCompatActivity {
     private ImageButton mStartButton;
     private RelativeLayout mLevels;
     private RelativeLayout mSettings;
-    public MediaPlayer mBackgroundMusic;
+    public MediaPlayer mBackgroundMusic ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-
-        //start service and play music
-        startService(new Intent(MainMenuActivity.this, SoundService.class));
+        mBackgroundMusic=  MediaPlayer.create(MainMenuActivity.this, R.raw.meny_game );
+        mBackgroundMusic.start();
         //Start Button
         mStartButton = (ImageButton) findViewById(R.id.start);
         // levels button
@@ -39,15 +40,48 @@ public class MainMenuActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        mLevels.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this,
+                        LevelsActivity.class);
+                startActivity(intent);
+            }
+        });
+        mStartButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainMenuActivity.this,
+                        GamePlayActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mBackgroundMusic.pause();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        mBackgroundMusic.start();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        mBackgroundMusic.stop();
+
+    }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //stop service and stop music
-        stopService(new Intent(MainMenuActivity.this, SoundService.class));
+        mBackgroundMusic.stop();
     }
 
 }
