@@ -12,7 +12,10 @@ public class GamePlayActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_play);
+        setContentView(new GameView(this));
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+    }
+
+    private void setContentView(GameView gameView) {
     }
 }

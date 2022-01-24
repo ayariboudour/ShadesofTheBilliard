@@ -80,6 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mLangButton.setVisibility(View.VISIBLE);
+                // TODO;// set language from en to ru
             }
         });
         mLangButton.setOnClickListener(new View.OnClickListener() {
