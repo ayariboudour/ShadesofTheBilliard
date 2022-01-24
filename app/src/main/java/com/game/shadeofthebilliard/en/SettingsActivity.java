@@ -1,4 +1,4 @@
-package com.game.shadeofthebilliard;
+package com.game.shadeofthebilliard.en;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,6 +11,8 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.game.shadeofthebilliard.R;
+
 public class SettingsActivity extends AppCompatActivity {
     private RelativeLayout mSound;
     private RelativeLayout mLanguage;
@@ -19,6 +21,9 @@ public class SettingsActivity extends AppCompatActivity {
     private LinearLayout mShowButtons;
     private ImageButton mBackButton;
     private ImageButton mLangButton;
+    private Boolean isOn=true;
+    private Boolean isOff=false;
+    private MainMenuActivity mActivity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +38,7 @@ public class SettingsActivity extends AppCompatActivity {
         mOff = (Button) findViewById(R.id.off_btn);
         mBackButton = (ImageButton) findViewById(R.id.backbtn);
         mLangButton = (ImageButton) findViewById(R.id.eng);
+        mActivity = new MainMenuActivity();
 
 
         mBackButton.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +61,9 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mShowButtons.setVisibility(View.INVISIBLE);
-                //mute();
+                if (mOn.equals(true) )
+                    switchOff();
+
             }
         });
 
@@ -63,7 +71,8 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mShowButtons.setVisibility(View.INVISIBLE);
-               // unMute();
+                if (mOff.equals(true))
+                    switchOn();
             }
         });
 
@@ -71,6 +80,7 @@ public class SettingsActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mLangButton.setVisibility(View.VISIBLE);
+                // TODO;// set language from en to ru
             }
         });
         mLangButton.setOnClickListener(new View.OnClickListener() {
@@ -82,14 +92,21 @@ public class SettingsActivity extends AppCompatActivity {
 
 
     }
-    private void mute(){
-    //TODO : mute function
-        MainMenuActivity mainMenuActivity = new MainMenuActivity();
-        mainMenuActivity.mBackgroundMusic.stop();
+    public void switchOn()
+    {
+        isOn=true;
+        isOff= false;
+        mActivity.mBackgroundMusic.start();
     }
-    private void unMute(){
-        //TODO : unmute function
-        MainMenuActivity mainMenuActivity = new MainMenuActivity();
-        mainMenuActivity.mBackgroundMusic.start();
+    public void switchOff()
+    {
+        isOn=false;
+        isOff = true;
+        mActivity.mBackgroundMusic.stop();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
     }
 }

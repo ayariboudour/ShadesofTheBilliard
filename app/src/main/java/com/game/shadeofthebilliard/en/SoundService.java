@@ -1,8 +1,10 @@
-package com.game.shadeofthebilliard;
+package com.game.shadeofthebilliard.en;
 import android.app.Service;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.IBinder;
+
+import com.game.shadeofthebilliard.R;
 
 public class SoundService extends Service {
     MediaPlayer player;
